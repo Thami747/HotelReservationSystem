@@ -64,10 +64,10 @@ public class HotelReservation {
         String[] weekend = {"sat", "sun"};
         boolean value = false;
         
-        for (int y = 0; y < weekend.length; y++) {
+        for (String weekend1 : weekend) {
 //            System.out.println("array weekend " + weekend[y] + "   day  " + day);
-            if (weekend[y].equals(day)) {
-//                System.out.println("We have hit true guys");
+            if (weekend1.equals(day)) {
+                //                System.out.println("We have hit true guys");
                 value = true;
             }
         }

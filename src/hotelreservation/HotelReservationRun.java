@@ -45,10 +45,7 @@ public class HotelReservationRun {
     }
     
     public static int getTotalForLakeWood(String customerType, String date1, String date2, String date3) {
-        int dayRate1 = 0;
-        int dayRate2 = 0;
-        int dayRate3 = 0;
-        int totalReservation = 0;
+        int dayRate1, dayRate2, dayRate3, totalReservation;
         
         CustomerRate customerRate = new CustomerRate();
         HotelReservation hotelReservation =  new HotelReservation(customerType, date1, date2, date3);
@@ -68,10 +65,7 @@ public class HotelReservationRun {
     }
     
     public static int getTotalForBridgeWood(String customerType, String date1, String date2, String date3) {
-        int dayRate1 = 0;
-        int dayRate2 = 0;
-        int dayRate3 = 0;
-        int totalReservation = 0;
+        int dayRate1, dayRate2, dayRate3, totalReservation;
         
         CustomerRate customerRate = new CustomerRate();
         HotelReservation hotelReservation =  new HotelReservation(customerType, date1, date2, date3);
@@ -91,10 +85,7 @@ public class HotelReservationRun {
     }
     
     public static int getTotalForRidgeWood(String customerType, String date1, String date2, String date3) {
-        int dayRate1 = 0;
-        int dayRate2 = 0;
-        int dayRate3 = 0;
-        int totalReservation = 0;
+        int dayRate1, dayRate2, dayRate3, totalReservation;
         
         CustomerRate customerRate = new CustomerRate();
         HotelReservation hotelReservation =  new HotelReservation(customerType, date1, date2, date3);
