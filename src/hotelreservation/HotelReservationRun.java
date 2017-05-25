@@ -5,6 +5,13 @@
  */
 package hotelreservation;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author thami
@@ -15,11 +22,30 @@ public class HotelReservationRun {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        try {
+            String[] inputFromTextFile = readInputFromFile("file.txt").split(",");
+            System.out.println(testInputFromUser(inputFromTextFile[0], inputFromTextFile[1], inputFromTextFile[2], inputFromTextFile[3]));
+        } catch (IOException ex) {
+            Logger.getLogger(HotelReservationRun.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public static String readInputFromFile(String fileName) throws FileNotFoundException, IOException {
+        String inputFromTextFile;
+        try(BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+            StringBuilder sb = new StringBuilder();
+            String line = br.readLine();
+
+            while (line != null) {
+                sb.append(line);
+                sb.append(System.lineSeparator());
+                line = br.readLine();
+            } 
+            inputFromTextFile = sb.toString();
+            System.out.println(inputFromTextFile);
+        }
         
-        System.out.println(testInputFromUser("Regular Customer", "16Mar2009(mon)", "17Mar2009(tues)", "18Mar2009(wed)"));
-        System.out.println(testInputFromUser("Regular Customer", "20Mar2009(fri)", "21Mar2009(sat)", "22Mar2009(sun)"));
-        System.out.println(testInputFromUser("Rewards Customer", "26Mar2009(thur)", "27Mar2009(fri)", "28Mar2009(sat)"));
+        return inputFromTextFile;
     }
     
     public static String testInputFromUser(String customerType, String date1, String date2, String date3) {
@@ -47,7 +73,7 @@ public class HotelReservationRun {
     public static int getTotalForLakeWood(String customerType, String date1, String date2, String date3) {
         int dayRate1, dayRate2, dayRate3, totalReservation;
         
-        CustomerRate customerRate = new CustomerRate();
+        CustomerRate customerRate = new CustomerRate(); 
         HotelReservation hotelReservation =  new HotelReservation(customerType, date1, date2, date3);
         
         if (hotelReservation.getCustomerType().equalsIgnoreCase("Regular Customer")) {
